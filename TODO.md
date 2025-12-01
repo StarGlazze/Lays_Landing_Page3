@@ -1,0 +1,1 @@
+-   [ ] Add chip_numpuk.png image to the left side of the newsletter section
