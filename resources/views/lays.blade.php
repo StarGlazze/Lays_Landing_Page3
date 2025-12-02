@@ -52,11 +52,11 @@
                 </button>
             </div>
             <div class="hero-image">
-                <img src="{{ asset('images/gambar_utama.png') }}" alt="Gambar Utama Lays" class="main-chips-image">
+                <img src="{{ asset('images/gambar_utama_3.png') }}" alt="Gambar Utama Lays" class="main-chips-image">
             </div>
         </div>
         <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
+            <i class="fas fa-chevron-right"></i>
         </div>
     </section>
 
@@ -64,58 +64,80 @@
         <div class="section-header reveal">
             <h2>Best sellers.</h2>
             <a href="#" class="shop-all">
-                Shop all
-                <i class="fas fa-arrow-right"></i>
+                <span class="text-link">Shop all</span>
+                <span class="shop-icon"><i class="fas fa-chevron-right"></i></span>
             </a>
         </div>
         <div class="products-grid">
+            <!-- PRODUCT 1 -->
             <div class="product-card reveal">
-                <div class="product-image">
-                    <img src="{{ asset('images/lays_ijo.png') }}" alt="Lays Ijo" class="product-image">
+                <div class="image-wrapper">
+                    <img src="{{ asset('images/lays_ijo.png') }}" alt="Lays Green">
                 </div>
                 <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <div class="product-name">Lays Yogurt & Herb</div>
+                <div class="product-row">
+                    <span class="product-name">Lays Yogurt & Herb</span>
+                    <span class="small-red-icon">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                </div>
+                <p class="pack-info">Pack of 6</p>
                 <div class="product-price">$44.99</div>
             </div>
+            <!-- PRODUCT 2 -->
             <div class="product-card reveal">
-                <div class="product-image">
-                    <img src="{{ asset('images/lays_kuning.png') }}" alt="Lays Kuning" class="product-image">
+                <div class="image-wrapper">
+                    <img src="{{ asset('images/lays_kuning.png') }}" alt="Lays Yellow">
                 </div>
                 <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <div class="product-name">Lays Classic</div>
+                <div class="product-row">
+                    <span class="product-name">Lays Classic</span>
+                    <span class="small-red-icon">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                </div>
+                <p class="pack-info">Pack of 6</p>
                 <div class="product-price">$53.99</div>
             </div>
+            <!-- PRODUCT 3 -->
             <div class="product-card reveal">
-                <div class="product-image">
-                    <img src="{{ asset('images/lays_biru.png') }}" alt="Lays Biru" class="product-image">
+                <div class="image-wrapper">
+                    <img src="{{ asset('images/lays_biru.png') }}" alt="Lays Blue">
                 </div>
                 <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                 </div>
-                <div class="product-name">Lays Salt & Vinegar</div>
+                <div class="product-row">
+                    <span class="product-name">Lays Salt & Vinegar</span>
+                    <span class="small-red-icon">
+                        <i class="fas fa-chevron-right"></i>
+                    </span>
+                </div>
+                <p class="pack-info">Pack of 6</p>
                 <div class="product-price">$24.99</div>
             </div>
-            <div class="product-card create-card reveal" id="create">
-                <img src="{{ asset('images/lays_merah.png') }}" alt="Lays Merah" class="create-image">
-                <h3>Create Your Own</h3>
-                <p>Follow us and share how you customize your Lays</p>
-                <button class="btn-secondary">Get Started</button>
+            <!-- CREATE CARD -->
+            <div class="create-card reveal">
+                <div class="create-image-wrapper">
+                    <img src="{{ asset('images/lays_merah.png') }}" class="create-img" alt="Lays Red">
+                </div>
+                <h3>Create Your Own.</h3>
+                <div class="title-strip"></div>
+                <p>Explore all our bold flavors and create a wild mix.</p>
+                <button class="btn-secondary">
+                    Get Started
+                    <i class="fas fa-arrow-right-long"></i>
+                </button>
             </div>
         </div>
     </section>

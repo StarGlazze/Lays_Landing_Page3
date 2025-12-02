@@ -174,41 +174,8 @@ img {
     display: flex;
     align-items: center;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     padding: 4rem var(--padding);
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: -100px;
-    left: -150px;
-    width: 600px;
-    height: 600px;
-    background: 
-        radial-gradient(circle at 30% 40%, transparent 20%, rgba(0,0,0,0.08) 20%, rgba(0,0,0,0.08) 22%, transparent 22%),
-        radial-gradient(circle at 60% 70%, transparent 15%, rgba(0,0,0,0.1) 15%, rgba(0,0,0,0.1) 17%, transparent 17%),
-        radial-gradient(circle at 45% 55%, transparent 25%, rgba(0,0,0,0.06) 25%, rgba(0,0,0,0.06) 28%, transparent 28%);
-    background-size: 200px 200px, 150px 150px, 180px 180px;
-    opacity: 1;
-    transform: rotate(-15deg);
-    z-index: 0;
-}
-
-.hero::after {
-    content: '';
-    position: absolute;
-    bottom: -120px;
-    right: -180px;
-    width: 700px;
-    height: 500px;
-    background: 
-        radial-gradient(ellipse at 50% 50%, transparent 18%, rgba(0,0,0,0.09) 18%, rgba(0,0,0,0.09) 20%, transparent 20%),
-        radial-gradient(ellipse at 30% 60%, transparent 22%, rgba(0,0,0,0.07) 22%, rgba(0,0,0,0.07) 25%, transparent 25%);
-    background-size: 220px 220px, 160px 160px;
-    opacity: 1;
-    transform: rotate(20deg) scale(1.2);
-    z-index: 0;
 }
 
 .hero-container {
@@ -220,6 +187,7 @@ img {
     align-items: center;
     width: 100%;
     z-index: 1;
+    overflow: visible;
 }
 
 .hero-content h1 {
@@ -242,13 +210,15 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: visible;
+    padding: 3rem;
 }
 
 .main-chips-image {
-    width: 160%;
+    width: 125%;
     max-width: none;
-    transform: rotate(8deg) scale(1.3);
-    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+    transform: rotate(15deg) scale(1.3);
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5));
     margin-right: -20%;
 }
 
@@ -270,131 +240,342 @@ img {
     font-size: 1.5rem;
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(-10px); }
-}
 
-/* ========================================
-   BEST SELLERS SECTION
-======================================== */
+/* ============================
+   BEST SELLERS - FIXED (paste & replace)
+   Replace any previous .best-sellers / .section-header / .products-grid / .product-card / .create-card rules
+============================== */
+
 .best-sellers {
-    padding: 5rem var(--padding);
+    padding: 6rem var(--padding);
     background: var(--white);
+    overflow: visible;
 }
 
+/* HEADER: keep shop-all next to the title (not pushed to right) */
 .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3rem;
     max-width: var(--max-width);
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;   /* IMPORTANT: keep shop-all beside title */
+    gap: 18px;
 }
 
 .section-header h2 {
+    font-size: 2.4rem;
+    font-weight: 800;
     color: var(--primary-red);
-    font-size: 2.5rem;
+    margin: 0;
+    line-height: 1;
 }
 
+/* SHOP ALL: text-only underline on hover; icon excluded */
 .shop-all {
-    color: var(--text-dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: var(--primary-black);
     text-decoration: none;
-    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1;
+    padding-top: 12px;  /* align vertically with h2 */
+}
+
+/* structure: ensure the text has class .text-link in HTML (see note) */
+.shop-all .text-link {
+    text-decoration: none;
+    padding-bottom: 2px;
+}
+
+/* underline only when hovering the text itself */
+.shop-all .text-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* circular red icon for shop-all (not underlined) */
+.shop-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--primary-red);
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    transition: gap 0.3s;
+    justify-content: center;
 }
+.shop-icon i { color: #fff; font-size: 0.7rem; line-height: 1; }
 
-.shop-all:hover {
-    gap: 1rem;
-}
-
+/* ============================
+   PRODUCTS GRID
+============================== */
 .products-grid {
     max-width: var(--max-width);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    grid-template-columns: 0.8fr 0.8fr 0.8fr 1.3fr;
+    gap: 2.2rem;
+    align-items: end;
+    overflow: visible;
 }
 
+/* PRODUCT CARD: remove visible box/line/shadow for the three product cards.
+   Visual card area is left transparent so it doesn't show an extra "box" */
 .product-card {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 2rem;
-    text-align: center;
-    transition: all 0.3s;
-    border: 2px solid #f0f0f0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 28px;
+    padding: 0.75rem 0.6rem;
+    transition: transform .25s ease;
+    text-align: left;
+
+    /* FIX SHADOW NOT SHOWING */
+    position: relative;
+    overflow: visible !important;
+    z-index: 5;
 }
 
 .product-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transform: translateY(-6px);
 }
-
-.product-image {
+/* IMAGE WRAPPER */
+.image-wrapper {
     width: 100%;
-    height: 200px;
+    aspect-ratio: 1 / 1;        /* kotak otomatis tanpa pixel fix */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
-}
-
-.product-image img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.stars {
-    color: var(--yellow);
-    font-size: 0.9rem;
-    margin-bottom: 0.5rem;
-}
-
-.product-name {
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.product-price {
-    color: var(--text-dark);
-    font-weight: 700;
-    font-size: 1.2rem;
-}
-
-/* Create Card */
-.create-card {
-    background: var(--primary-red);
-    color: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    min-height: 400px;
-}
-
-.create-image {
-    max-width: 150px;
-    margin-bottom: 1.5rem;
-    transform: rotate(5deg);
-}
-
-.create-card h3 {
-    font-size: 1.5rem;
+    overflow: visible;
     margin-bottom: 1rem;
 }
 
-.create-card p {
-    margin-bottom: 1.5rem;
-    opacity: 0.9;
+/* tilt + shadow for all 3 product images */
+.image-wrapper img {
+    width: 280px;
+    object-fit: contain;
+    transform: rotate(15deg);
+    filter: drop-shadow(0 25px 40px rgba(0,0,0,0.35));
+    transition: .3s ease;
 }
+
+.product-card .image-wrapper img {
+    width: 280px;               /* ini kamu ubah sesuai selera */
+    transform: rotate(15deg);
+    filter: drop-shadow(0 18px 30px rgba(0,0,0,0.18));
+    transition: .3s ease;
+}
+
+.product-card:hover .image-wrapper img {
+    transform: rotate(18deg) translateY(-6px);
+    filter: drop-shadow(0 30px 50px rgba(0,0,0,0.45));
+}
+
+
+/* Create-card image TIDAK miring */
+.create-card .create-img {
+    transform: none !important;
+    filter: none !important;
+}
+
+
+/* STARS */
+.stars {
+    color: var(--yellow);
+    margin-bottom: 0.35rem;
+    display: inline-block;
+}
+
+/* PRODUCT ROW: name + chevron-circle on right */
+.product-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    justify-content: flex-start !important;
+}
+
+/* product name */
+.product-name {
+    font-size: 1.05rem;   /* slightly smaller per request */
+    font-weight: 700;
+    color: var(--brown);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 125px;  /* leave space for icon */
+}
+
+/* small red chevron circle (same style as shop-icon) */
+.small-red-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.small-red-icon i { color: #fff; font-size: 0.55rem; line-height: 1; }
+
+/* PACK INFO (small, brown) */
+.pack-info {
+    margin: 0.3rem 0 0.55rem 0;
+    font-size: 0.85rem;               /* smaller */
+    color: var(--brown);              /* use your root variable */
+    opacity: 0.95;
+}
+
+/* PRICE */
+.product-price {
+    font-size: 1.15rem;  /* a little smaller */
+    font-weight: 800;
+    color: var(--brown);
+    margin-bottom: 0.25rem;
+}
+
+/* ============================
+   CREATE CARD — RED SHAPE (fixed)
+   - shape tuned to be more like Dribbble:
+     tall, big rounded right, left slightly rounded
+============================== */
+.create-card {
+    background: var(--primary-red);
+    color: #fff;
+
+    /* your shape */
+    border-radius: 160px 75px 0px 75px;
+    -webkit-border-radius: 160px 75px 0px 75px;
+    -moz-border-radius: 160px 75px 0px 75px;
+
+    padding: 2.4rem 2.4rem 2rem 2.4rem;  /* lebih kecil, biar tidak mendorong ke atas */
+    position: relative;
+    overflow: visible;
+
+    min-height: 300px;              /* DARI 480 → 420 supaya tidak terlalu tinggi */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    text-align: left;
+    box-shadow: none !important;
+    z-index: 1;
+    align-self: end;                /* ⬅⬅⬅ BIAR NGE-ALIGN KE BAWAH GRID */
+}
+
+
+.create-card .create-img {
+    position: absolute;
+    top: -100px;               
+    transform: translateX(-50%) ;  /* bener-bener center */
+    
+    width: 200px;
+    z-index: 3;
+    filter: drop-shadow(0px 15px 30px rgba(0,0,0,0.35)) ;
+}
+
+
+/* create card content area - push content down so floating image sits nicely */
+.create-card h3 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.create-card h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 25px;
+    height: 4px;
+    background: var(--yellow);
+    border-radius: 10px;
+}
+
+.create-card p {
+    font-size: 0.95rem;
+    opacity: 0.94;
+    margin: 0 0 1.4rem 0;
+    color: #fff;
+}
+
+/* GET STARTED BUTTON — yellow bg, black text & arrow */
+.btn-secondary {
+    background: var(--yellow) !important;
+    color: #000 !important;
+    padding: 0.6rem 1.2rem;     /* lebih kecil */
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    width: auto;               /* ⬅ memastikan tidak melebar */
+    max-width: fit-content;    /* ⬅ mencegah stretch */
+    white-space: nowrap;       /* ⬅ biar tidak turun baris */
+}
+
+/* ensure icon inside button is black */
+.btn-secondary i {
+    color: #000;
+    font-size: 1rem;
+}
+
+/* small responsive tweak: keep grid usable on narrower screens */
+@media (max-width: 1100px) {
+    .products-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .create-card { min-height: 420px; }
+}
+
+@media (max-width: 700px) {
+
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1.6rem;
+    }
+
+    .section-header {
+        justify-content: space-between;
+    }
+
+    /* --- CREATE CARD MOBILE FIX --- */
+    .create-card {
+        border-radius: 90px 45px 0 45px;   /* ⬅ shape jadi lebih pendek lagi */
+        padding: 7rem 1.8rem 2.2rem 1.8rem; /* ⬅ teks makin naik sedikit */
+        min-height: 320px;                 /* ⬅ shape lebih rendah 60px */
+        margin-top: 6rem;                  /* ⬅ tetep turun biar ga tabrak */
+        position: relative;
+    }
+
+    /* GAMBAR SELALU DI TENGAH (ANTI GESER) */
+    .create-card .create-img {
+        position: absolute;
+        top: -75px;           
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+
+        width: 235px;          /* sedikit dikecilkan biar pas proporsinya */
+        z-index: 5;
+        filter: drop-shadow(0px 18px 26px rgba(0,0,0,0.28));
+    }
+
+    .create-card .create-image-wrapper {
+        position: absolute;
+        top: -50px;               /* naikkan */
+        left: 50%;                /* center */
+        transform: translateX(-50%); /* benar-benar center */
+        width: 100%;              /* biar wrapper mengikuti lebar kartu */
+        display: flex;
+        justify-content: center;  /* PAKSA gambarnya di tengah */
+        pointer-events: none;     /* opsional */
+    }
+
+}
+
+
 
 /* ========================================
    SHOWCASE SECTION
@@ -509,35 +690,6 @@ img {
     overflow: hidden;
 }
 
-.newsletter::before {
-    content: '';
-    position: absolute;
-    top: -80px;
-    right: -100px;
-    width: 500px;
-    height: 400px;
-    background: 
-        radial-gradient(circle at 40% 50%, transparent 16%, rgba(255,255,255,0.12) 16%, rgba(255,255,255,0.12) 18%, transparent 18%),
-        radial-gradient(circle at 70% 30%, transparent 20%, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 23%, transparent 23%);
-    background-size: 180px 180px, 140px 140px;
-    opacity: 1;
-    transform: rotate(25deg);
-}
-
-.newsletter::after {
-    content: '';
-    position: absolute;
-    bottom: -60px;
-    left: -80px;
-    width: 350px;
-    height: 300px;
-    background: 
-        radial-gradient(ellipse at 50% 50%, transparent 18%, rgba(255,255,255,0.09) 18%, rgba(255,255,255,0.09) 21%, transparent 21%);
-    background-size: 160px 160px;
-    opacity: 1;
-    transform: rotate(-18deg);
-}
-
 .newsletter-container {
     max-width: 1100px;
     margin: 0 auto;
@@ -598,34 +750,6 @@ img {
     overflow: hidden;
 }
 
-.footer::before {
-    content: '';
-    position: absolute;
-    top: -90px;
-    left: -120px;
-    width: 500px;
-    height: 450px;
-    background: 
-        radial-gradient(circle at 35% 45%, transparent 17%, rgba(0,0,0,0.09) 17%, rgba(0,0,0,0.09) 19%, transparent 19%),
-        radial-gradient(circle at 65% 65%, transparent 22%, rgba(0,0,0,0.07) 22%, rgba(0,0,0,0.07) 25%, transparent 25%);
-    background-size: 190px 190px, 150px 150px;
-    opacity: 1;
-    transform: rotate(-12deg);
-}
-
-.footer::after {
-    content: '';
-    position: absolute;
-    bottom: -70px;
-    right: -130px;
-    width: 550px;
-    height: 350px;
-    background: 
-        radial-gradient(ellipse at 50% 40%, transparent 19%, rgba(0,0,0,0.08) 19%, rgba(0,0,0,0.08) 22%, transparent 22%);
-    background-size: 200px 200px;
-    opacity: 1;
-    transform: rotate(16deg) scale(1.1);
-}
 
 .footer-container {
     max-width: var(--max-width);
