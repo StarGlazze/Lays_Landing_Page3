@@ -165,79 +165,167 @@ img {
     transition: all 0.3s;
 }
 
-/* ========================================
-   HERO SECTION
-======================================== */
-.hero {
+/* =============================
+   HERO SECTION FINAL
+============================= */
+
+/* BAGIAN MERAH HERO */
+.hero-top {
     background: var(--primary-red);
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    position: relative;
-    overflow: visible;
-    padding: 4rem var(--padding);
+    padding: 4rem 0 7rem 0; 
 }
 
+/* GRID LAYOUT */
 .hero-container {
     max-width: var(--max-width);
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
+    padding: 0 var(--padding);
     align-items: center;
-    width: 100%;
-    z-index: 1;
-    overflow: visible;
 }
 
+/* TEXT */
 .hero-content h1 {
     font-size: 3.8rem;
-    color: var(--white);
+    font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 1.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
 }
 
 .hero-content p {
-    color: var(--white);
-    font-size: 1.1rem;
-    margin-bottom: 2.5rem;
-    opacity: 0.95;
-    max-width: 500px;
-    font-weight: semi-bold;
+    margin-top: 1.2rem;
+    font-size: 1.15rem;
+    max-width: 470px;
+    color: #fff;
+    opacity: 0.92;
+    line-height: 1.45;
+    margin-bottom: 1.5rem;
 }
 
+/* IMAGE */
 .hero-image {
     display: flex;
     justify-content: center;
-    align-items: center;
-    overflow: visible;
-    padding: 3rem;
 }
 
 .main-chips-image {
-    width: 125%;
-    max-width: none;
-    transform: rotate(15deg) scale(1.3);
-    filter: drop-shadow(0 30px 60px rgba(0,0,0,0.5));
-    margin-right: -20%;
+    width: 120%;
+    transform: rotate(15deg) scale(1.15);
+    filter: drop-shadow(0 35px 55px rgba(0,0,0,0.45));
+    position: relative;
+    right: -40px;
 }
 
+/* =============================
+   CURVE PUTIH
+============================= */
+.hero-curve {
+    --r: 20px;
+    --s: 35px;
+    --a: 12deg;
+    --p: 50%;
+
+    height: 50px;
+    background: var(--primary-red);  /* background putih */
+    position: relative;
+}
+
+.hero-curve {
+    --r: 25px;      /* radius sudut lebih besar */
+    --s: 50px;      /* curve lebih dalam */
+    --a: 18deg;     /* sudut lebih curam */
+    --p: 50%;
+
+    height: 65px;   /* tinggi lebih besar */
+    background: var(--primary-red);
+    position: relative;
+}
+
+.hero-curve::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: var(--white);
+    
+    --_m: var(--r), #000 calc(100% - 1px), #0000;
+    --_d: calc((var(--s) + var(--r)) * cos(var(--a)));
+
+    -webkit-mask:
+        radial-gradient(var(--r) at calc(var(--p) + var(--_d)) var(--_m)),
+        radial-gradient(var(--r) at calc(var(--p) - var(--_d)) var(--_m)),
+        radial-gradient(
+            var(--s) at var(--p) calc(-1 * sin(var(--a)) * var(--s)),
+            #0000 100%, #000 calc(100% + 1px)
+        ) 0 calc(var(--r) * (1 - sin(var(--a)))) no-repeat,
+        linear-gradient(
+            90deg,
+            #000 calc(var(--p) - var(--_d)),
+            #0000 0 calc(var(--p) + var(--_d)),
+            #000 0
+        );
+    
+    mask:
+        radial-gradient(var(--r) at calc(var(--p) + var(--_d)) var(--_m)),
+        radial-gradient(var(--r) at calc(var(--p) - var(--_d)) var(--_m)),
+        radial-gradient(
+            var(--s) at var(--p) calc(-1 * sin(var(--a)) * var(--s)),
+            #0000 100%, #000 calc(100% + 1px)
+        ) 0 calc(var(--r) * (1 - sin(var(--a)))) no-repeat,
+        linear-gradient(
+            90deg,
+            #000 calc(var(--p) - var(--_d)),
+            #0000 0 calc(var(--p) + var(--_d)),
+            #000 0
+        );
+}
+
+
+/* SCROLL INDICATOR */
 .scroll-indicator {
     position: absolute;
-    bottom: 30px;
+    top: -28px;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
-    height: 50px;
-    background: rgba(255,255,255,0.2);
+    width: 58px;
+    height: 58px;
+    background: rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
     cursor: pointer;
-    animation: bounce 2s infinite;
-    color: var(--white);
-    font-size: 1.5rem;
+    z-index: 50;
+    transition: background 0.3s ease;
+}
+
+.scroll-indicator:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.scroll-indicator i {
+    transform: rotate(-45deg);
+    font-weight: 400;
+}
+
+@media (max-width: 900px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .main-chips-image {
+        width: 70%;
+        margin: 0 auto;
+        right: 0;
+        transform: rotate(15deg) scale(1.1);
+    }
 }
 
 
@@ -247,7 +335,7 @@ img {
 ============================== */
 
 .best-sellers {
-    padding: 6rem var(--padding);
+    padding: 2rem var(--padding);
     background: var(--white);
     overflow: visible;
 }
@@ -582,7 +670,7 @@ img {
 ======================================== */
 .showcase {
     padding: 5rem 0;
-    background: #f9f9f9;
+    background: #ffffff;
 }
 
 .showcase-container {

@@ -42,23 +42,38 @@
     </nav>
 
     <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content reveal">
-                <h1>The Best Snack For You</h1>
-                <p>Potato Chips are the most eaten and popular crispy snack items. Demand for potato chips.</p>
-                <button class="btn-primary">
-                    Shop Now
-                    <i class="fas fa-arrow-right-long"></i>
-                </button>
-            </div>
-            <div class="hero-image">
-                <img src="{{ asset('images/gambar_utama_3.png') }}" alt="Gambar Utama Lays" class="main-chips-image">
+
+        <!-- BAGIAN MERAH (HERO) -->
+        <div class="hero-top">
+            <div class="hero-container">
+                <div class="hero-content reveal">
+                    <h1>The Best Snack For You</h1>
+                    <p>Potato Chips are the most eaten and popular crispy snack items. Demand for
+                        potato chips.</p>
+                    <button class="btn-primary">
+                        Shop Now
+                        <i class="fas fa-arrow-right-long"></i>
+                    </button>
+                </div>
+                <div class="hero-image">
+                    <img src="{{ asset('images/gambar_utama_3.png') }}" alt="Gambar Utama Lays"
+                        class="main-chips-image">
+                </div>
             </div>
         </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-right"></i>
+        <!-- CURVE PUTIH -->
+        <div class="hero-curve">
+            <div class="scroll-indicator">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round">
+                    <line x1="5" y1="19" x2="19" y2="5"></line>
+                    <polyline points="11 5 19 5 19 13"></polyline>
+                </svg>
+            </div>
         </div>
+
     </section>
+
 
     <section class="best-sellers" id="shop">
         <div class="section-header reveal">
@@ -127,7 +142,7 @@
                 <div class="product-price">$24.99</div>
             </div>
             <!-- CREATE CARD -->
-            <div class="create-card reveal">
+            <div class="create-card reveal" id="create">
                 <div class="create-image-wrapper">
                     <img src="{{ asset('images/lays_merah.png') }}" class="create-img" alt="Lays Red">
                 </div>
