@@ -182,7 +182,6 @@ img {
     overflow: visible;
 }
 
-
 .hero-container {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -280,7 +279,6 @@ img {
         );
 }
 
-/* SCROLL INDICATOR */
 .scroll-indicator {
     position: absolute;
     top: -28px;
@@ -358,8 +356,9 @@ img {
 }
 
 .shop-icon {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
+    margin-bottom: 0.25rem;
     border-radius: 50%;
     background: var(--primary-red);
     display: flex;
@@ -373,7 +372,6 @@ img {
     line-height: 1; 
 }
 
-/* PRODUCTS GRID */
 .products-grid {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -460,8 +458,8 @@ img {
 }
 
 .small-red-icon {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background: var(--primary-red);
     display: flex;
@@ -481,6 +479,7 @@ img {
     font-size: 0.85rem;
     color: var(--brown);
     opacity: 0.95;
+    margin-top: 1rem;
 }
 
 .product-price {
@@ -488,9 +487,9 @@ img {
     font-weight: 800;
     color: var(--brown);
     margin-bottom: 0.25rem;
+    margin-top: 0.45rem;
 }
 
-/* CREATE CARD */
 .create-card {
     background: var(--primary-red);
     color: #fff;
@@ -519,7 +518,7 @@ img {
 
 .create-card h3 {
     font-size: 1.6rem;
-    font-weight: 700;
+    font-weight: 300;
     margin-bottom: 1rem;
     position: relative;
 }
@@ -580,7 +579,6 @@ img {
     position: relative;
 }
 
-/* IMAGE WRAPPER - lebih besar */
 .showcase-icon {
     position: relative;
     z-index: 1;
@@ -600,14 +598,13 @@ img {
     margin-bottom: 50px;
 }
 
-/* BROWN CONTENT BOX - lebih kecil dan rapat */
 .showcase-content {
     background: var(--brown);
     color: var(--white);
     padding: 3rem 3.5rem 3rem 4rem;
-    border-radius: 40px 65px 40px 0px;
-    -webkit-border-radius: 40px 65px 40px 0px;
-    -moz-border-radius: 40px 65px 40px 0px;
+    border-radius: 40px 75px 40px 0px;
+    -webkit-border-radius: 40px 75px 40px 0px;
+    -moz-border-radius: 40px 75px 40px 0px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.25);
     position: relative;
     margin-top: 60px;
@@ -618,10 +615,9 @@ img {
     align-self: center;
 }
 
-/* HEADING - dot kuning di akhir */
 .showcase-content h2 {
     font-size: 2.8rem;
-    font-weight: 800;
+    font-weight: 300;
     line-height: 1.1;
     margin-bottom: 0.5rem;
     position: relative;
@@ -639,7 +635,6 @@ img {
     border-radius: 50%;
 }
 
-/* YELLOW STRIP setelah heading */
 .showcase-content h2::before {
     content: "";
     position: absolute;
@@ -651,7 +646,6 @@ img {
     border-radius: 10px;
 }
 
-/* PARAGRAPH */
 .showcase-content p {
     font-size: 1rem;
     line-height: 1.65;
@@ -664,13 +658,10 @@ img {
 /* ===========================================================
    NEW CATEGORY DESIGN (SAFE OVERRIDE, NO DAMAGE TO LAYOUT)
 =========================================================== */
-
-/* FIX SPACING FOR CATEGORY SECTION */
 .categories {
     padding: 3rem var(--padding) 8rem; /* top / left-right (sama dengan section lain) / bottom */
 }
 
-/* GRID */
 .categories-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr)); /* prevent overflow when padding used */
@@ -679,7 +670,6 @@ img {
     box-sizing: border-box;
 }
 
-/* CARD WRAPPER */
 .category-card {
     position: relative;
     overflow: visible;
@@ -690,7 +680,6 @@ img {
     transition: .3s ease;
 }
 
-/* IMAGE STYLE */
 .category-img-new {
     width: 100%;
     height: 330px;
@@ -699,7 +688,6 @@ img {
     display: block;
 }
 
-/* BOTTOM SHAPE */
 .category-bottom-card {
     position: absolute;
     left: 50%;
@@ -717,7 +705,6 @@ img {
     box-shadow: 0 10px 25px rgba(0,0,0,0.25);
 }
 
-/* COLOR VARIANTS */
 .category-bottom-card.red {
     background: var(--primary-red);
 }
@@ -726,13 +713,12 @@ img {
     background: #c76439;
 }
 
-/* TEXT */
 .category-bottom-card h3 {
     margin-bottom: 0.7rem;
     font-size: 1.3rem;
+    font-weight: 300;
 }
 
-/* BUTTON */
 .category-btn {
     background: var(--yellow);
     border-radius: 50px;
@@ -782,63 +768,224 @@ img {
     }
 }
 
-/* ========================================
-   NEWSLETTER SECTION
-======================================== */
+/* ============================
+   NEWSLETTER SECTION - 3 COLUMNS
+============================ */
+
 .newsletter {
-    background: var(--brown);
-    padding: 2.5rem var(--padding);
     position: relative;
-    overflow: hidden;
+    width: 100%;
+    padding: 0;
 }
 
+/* Div putih atas */
+.newsletter-top {
+    background: var(--white);
+    height: 60px;
+}
+
+/* Div coklat bawah */
+.newsletter-bottom {
+    background: var(--brown);
+    padding: 3rem var(--padding);
+    position: relative;
+}
+
+/* CONTAINER - 3 KOLOM: Chip | Text | Form */
 .newsletter-container {
-    max-width: 1100px;
+    max-width: var(--max-width);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 0.8fr 2fr;
-    gap: 3rem;
+    grid-template-columns: 250px 1fr auto;  /* ⬅️ 3 KOLOM: chip | text | form */
     align-items: center;
+    gap: 3rem;
+    position: relative;
 }
 
-.newsletter-icon img {
-    max-width: 220px;
-    margin: 0 auto;
-}
-
-.newsletter-content h2 {
-    color: var(--white);
-    font-size: 2rem;
-    margin-bottom: 1.2rem;
-}
-
-.newsletter-form {
+/* CHIP - Kolom 1 */
+.newsletter-chip {
     display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter-chip img {
+    width: 240px;
+    height: auto;
+    margin-top: -120px;  /* Nongol ke atas */
+}
+
+/* TEXT - Kolom 2 */
+.newsletter-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.newsletter-text h2 {
+    color: var(--white);
+    font-size: 1.6rem;  
+    line-height: 1.2;
+    font-weight: 300;
+    margin: 0;
+    max-width: 320px;
+    text-align: center;
+}
+
+/* FORM - Kolom 3 */
+.newsletter-form {
     background: var(--white);
+    display: flex;
     border-radius: 50px;
     overflow: hidden;
     padding: 5px;
+    width: 320px;
+    flex-shrink: 0;
 }
 
 .newsletter-form input {
     flex: 1;
-    padding: 0.9rem 1.5rem;
+    padding: 0.85rem 1.2rem;
     border: none;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.newsletter-form input::placeholder {
+    color: #999;
 }
 
 .newsletter-form button {
     background: var(--yellow);
     border: none;
-    padding: 0.9rem 1.8rem;
+    padding: 0.85rem 1.2rem;
     border-radius: 50px;
-    font-weight: 700;
     cursor: pointer;
+    font-size: 1.1rem;
     transition: transform 0.3s;
+    color: var(--text-dark);
 }
 
 .newsletter-form button:hover {
     transform: scale(1.05);
+}
+
+/* ============================
+   RESPONSIVE
+============================ */
+
+@media (max-width: 1200px) {
+    .newsletter-container {
+        grid-template-columns: 200px 1fr auto;
+        gap: 2rem;
+        max-width: 95%;  /* ⬅️ TAMBAH INI */
+    }
+
+    .newsletter-chip img {
+        width: 200px;
+        margin-top: -100px;
+    }
+
+    .newsletter-text h2 {
+        font-size: 1.4rem;
+        max-width: 250px;  /* ⬅️ TAMBAH INI */
+    }
+
+    .newsletter-form {
+        width: 280px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .newsletter-container {
+        grid-template-columns: 180px 1fr auto;
+        gap: 1.5rem;
+        padding: 0 2rem;  /* ⬅️ TAMBAH padding kiri-kanan */
+    }
+
+    .newsletter-chip img {
+        width: 180px;
+        margin-top: -90px;
+    }
+
+    .newsletter-text h2 {
+        font-size: 1.3rem;
+        max-width: 220px;
+    }
+
+    .newsletter-form {
+        width: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+    .newsletter-top {
+        height: 120px;
+    }
+
+    .newsletter-bottom {
+        padding: 3rem 1rem;  /* ⬅️ KURANGIN padding */
+    }
+
+    .newsletter-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2rem;
+        padding: 0;  /* ⬅️ RESET padding */
+    }
+
+    .newsletter-chip {
+        justify-content: center;  /* ⬅️ CENTER */
+    }
+
+    .newsletter-chip img {
+        width: 180px;
+        margin-top: -80px;
+        margin-left: 0;  /* ⬅️ RESET margin */
+        margin-right: 0;  /* ⬅️ RESET margin */
+    }
+
+    .newsletter-text {
+        justify-content: center;
+    }
+
+    .newsletter-text h2 {
+        font-size: 1.4rem;
+        max-width: 100%;  /* ⬅️ FULL WIDTH */
+        margin: 0 auto;  /* ⬅️ CENTER */
+    }
+
+    .newsletter-form {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .newsletter-text h2 {
+        font-size: 1.2rem;
+    }
+
+    .newsletter-chip img {
+        width: 140px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0;
+        background: transparent;
+    }
+
+    .newsletter-form input {
+        border-radius: 50px;
+        background: var(--white);
+    }
+
+    .newsletter-form button {
+        width: 100%;
+    }
 }
 
 /* ========================================
@@ -961,8 +1108,6 @@ img {
 /* ========================================
    RESPONSIVE DESIGN
 ======================================== */
-
-/* Large Desktop */
 @media (max-width: 1100px) {
     .products-grid { 
         grid-template-columns: repeat(2, 1fr); 
@@ -973,7 +1118,6 @@ img {
     }
 }
 
-/* Tablet */
 @media (max-width: 1024px) {
     :root {
         --padding: 5%;
@@ -984,7 +1128,6 @@ img {
     }
 }
 
-/* Small Tablet & Mobile */
 @media (max-width: 768px) {
     :root {
         --padding: 5%;
@@ -1010,7 +1153,6 @@ img {
         transform: translateX(0);
     }
 
-    /* HERO RESPONSIVE */
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1038,7 +1180,6 @@ img {
         display: block;
     }
 
-    /* SCROLL INDICATOR - TABLET */
     .scroll-indicator {
         width: 50px;
         height: 50px;
@@ -1050,7 +1191,6 @@ img {
         height: 18px;
     }
 
-    /* PRODUCTS GRID */
     .products-grid,
     .categories-grid {
         grid-template-columns: 1fr;
@@ -1060,7 +1200,6 @@ img {
         justify-content: space-between;
     }
 
-    /* SHOWCASE */
     .showcase-container {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -1093,7 +1232,6 @@ img {
         font-size: 2rem;
     }
 
-    /* NEWSLETTER */
     .newsletter-content h2 {
         font-size: 1.8rem;
     }
@@ -1110,7 +1248,6 @@ img {
         background: var(--white);
     }
 
-    /* FOOTER */
     .footer-container {
         grid-template-columns: 1fr;
     }
@@ -1145,7 +1282,6 @@ img {
     }
 }
 
-/* Mobile Small */
 @media (max-width: 480px) {
 
     .create-card {

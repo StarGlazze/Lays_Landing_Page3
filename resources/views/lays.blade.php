@@ -219,22 +219,31 @@
             </div>
         </section>
 
-
         <section class="newsletter" id="explore">
-            <div class="newsletter-container">
-                <div class="newsletter-icon">
-                    <img src="{{ asset('images/chip_numpuk.png') }}" alt="Chip Numpuk" class="newsletter-image">
-                </div>
-                <div class="newsletter-content reveal">
-                    <h2>Sign up to receive exclusive offers and discounts.</h2>
+
+            <div class="newsletter-top"></div>
+
+            <div class="newsletter-bottom">
+
+                <div class="newsletter-container">
+
+                    <!-- PINDAHIN CHIP KE DALAM CONTAINER -->
+                    <div class="newsletter-chip">
+                        <img src="{{ asset('images/chip_numpuk.png') }}" alt="Chip">
+                    </div>
+
+                    <div class="newsletter-text">
+                        <h2>Sign up for exclusive offers and discounts.</h2>
+                    </div>
+
                     <form class="newsletter-form">
-                        <input type="email" placeholder="Enter email address" required>
-                        <button type="submit">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+                        <input type="email" placeholder="Your e-mail address">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </form>
+
                 </div>
             </div>
+
         </section>
 
         <footer class="footer">
@@ -290,7 +299,24 @@
                 <p>© Copyright 2025, All Rights Reserved by RihanGG</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab        <section class="newsletter" id="explore">
+                            <div class="newsletter-container">
+                                <div class="newsletter-icon">
+                                    <img src="{{ asset('images/chip_numpuk.png') }}" alt="Chip Numpuk"
+                                        class="newsletter-image">
+                                </div>
+                                <div class="newsletter-content reveal">
+                                    <h2>Sign up to receive exclusive offers and discounts.</h2>
+                                    <form class="newsletter-form">
+                                        <input type="email" placeholder="Your e-mail address" required>
+                                        <button type="submit">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            </section> fa-linkedin-in">
+                        </i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
