@@ -170,8 +170,11 @@ img {
 ============================= */
 .hero-top {
     background: var(--primary-red);
-    padding: 4rem 0 7rem 0; 
+    padding: 4rem var(--padding) 7rem;
+    position: relative;
+    overflow: visible;
 }
+
 
 .hero-container {
     max-width: var(--max-width);
@@ -179,8 +182,10 @@ img {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
-    padding: 0 var(--padding);
+    padding: 0;
     align-items: center;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .hero-content h1 {
@@ -207,8 +212,8 @@ img {
 }
 
 .main-chips-image {
-    width: 120%;
-    transform: rotate(15deg) scale(1.15);
+    width: 140%;
+    transform: rotate(15deg) scale(1.3);
     filter: drop-shadow(0 35px 55px rgba(0,0,0,0.45));
     position: relative;
     right: -40px;
@@ -550,10 +555,10 @@ img {
 }
 
 /* ========================================
-   SHOWCASE SECTION
+   SHOWCASE SECTION - DRIBBBLE STYLE
 ======================================== */
 .showcase {
-    padding: 5rem 0;
+    padding: 5rem var(--padding);
     background: #ffffff;
 }
 
@@ -561,36 +566,91 @@ img {
     max-width: var(--max-width);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1.2fr 0.9fr;  /* GAMBAR LEBIH LEBAR */
+    gap: 0;
     align-items: center;
-    padding: 0 var(--padding);
+    position: relative;
 }
 
-.showcase-icon img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 20px;
+/* IMAGE WRAPPER - lebih besar */
+.showcase-icon {
+    position: relative;
+    z-index: 1;
+    justify-self: start;
+    align-self: start;
 }
 
+.showcase-image {
+    width: 120%;
+    max-width: 680px;  /* LEBIH BESAR */
+    border-radius: 40px 70px 40px 70px;
+    -webkit-border-radius: 40px 70px 40px 70px;
+    -moz-border-radius: 40px 70px 40px 70px;
+    object-fit: cover;
+    height: auto;
+    min-height: 500px;  /* TINGGI MINIMUM LEBIH BESAR */
+    margin-bottom: 50px;
+}
+
+/* BROWN CONTENT BOX - lebih kecil dan rapat */
 .showcase-content {
     background: var(--brown);
     color: var(--white);
-    padding: 3rem;
-    border-radius: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    padding: 3rem 3.5rem 3rem 4rem;
+    border-radius: 40px 65px 40px 0px;
+    -webkit-border-radius: 40px 65px 40px 0px;
+    -moz-border-radius: 40px 65px 40px 0px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    position: relative;
+    margin-top: 60px;
+    margin-left: -120px;  /* OVERLAP LEBIH BANYAK */
+    z-index: 2;
+    max-width: 420px;
+    justify-self: end;
+    align-self: center;
 }
 
+/* HEADING - dot kuning di akhir */
 .showcase-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
 }
 
+.showcase-content h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0.3rem;
+    margin-left: 0.3rem;
+    width: 14px;
+    height: 14px;
+    background: var(--yellow);
+    border-radius: 50%;
+}
+
+/* YELLOW STRIP setelah heading */
+.showcase-content h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    width: 45px;
+    height: 5px;
+    background: var(--yellow);
+    border-radius: 10px;
+}
+
+/* PARAGRAPH */
 .showcase-content p {
     font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+    line-height: 1.65;
+    margin-top: 2.5rem;
+    margin-bottom: 2.2rem;
+    opacity: 0.92;
+    color: rgba(255,255,255,0.95);
 }
 
 /* ========================================
@@ -894,11 +954,18 @@ img {
         margin: 0 auto 2rem;
     }
 
+    .hero-image {
+        display: flex;
+        justify-content: center;
+        order: 2;  /* biar gambar di bawah text */
+    }
+
     .main-chips-image {
         max-width: 70%;
         margin: 0 auto;
         right: 0;
         transform: rotate(15deg) scale(1.1);
+        display: block;
     }
 
     /* SCROLL INDICATOR - TABLET */
@@ -924,14 +991,36 @@ img {
     }
 
     /* SHOWCASE */
-    .showcase-container,
-    .newsletter-container {
+    .showcase-container {
         grid-template-columns: 1fr;
         gap: 2rem;
+        align-items: center;
+    }
+
+    .showcase-icon {
+        justify-self: center;
+        align-self: center;
+        padding-right: 0;
+    }
+
+    .showcase-image {
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        border-radius: 30px;
     }
 
     .showcase-content {
-        padding: 2rem;
+        margin-left: 0;
+        max-width: 100%;
+        justify-self: center;
+        align-self: center;
+        border-radius: 30px;
+        padding: 2.5rem;
+    }
+
+    .showcase-content h2 {
+        font-size: 2rem;
     }
 
     /* NEWSLETTER */
