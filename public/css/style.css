@@ -47,7 +47,7 @@ img {
 ======================================== */
 .btn-primary, .btn-secondary {
     background: var(--yellow);
-    color: var(--text-dark);
+    color: var(--brown);
     padding: 1rem 2.5rem;
     border: none;
     border-radius: 50px;
@@ -349,6 +349,7 @@ img {
 .shop-all .text-link {
     text-decoration: none;
     padding-bottom: 2px;
+    color: var(--brown);
 }
 
 .shop-all .text-link:hover {
@@ -543,7 +544,7 @@ img {
 
 .btn-secondary {
     background: var(--yellow) !important;
-    color: #000 !important;
+    color: var(--brown)!important;
     padding: 0.6rem 1.2rem;
     border-radius: 999px;
     font-weight: 700;
@@ -672,8 +673,10 @@ img {
 /* GRID */
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* prevent overflow when padding used */
+    gap: 2.5rem; /* row + column gap */
+    padding-inline: 0.5rem; /* small outer gutter so first/last card tidak menempel */
+    box-sizing: border-box;
 }
 
 /* CARD WRAPPER */
@@ -681,9 +684,8 @@ img {
     position: relative;
     overflow: visible;
     border-radius: 40px 100px 0px 40px;
-    -webkit-border-radius: 40px 100px 0px 40px;
-    -moz-border-radius: 40px 100px 0px 40px;
-    padding-bottom: 40px;
+    padding: 0 0.8rem 40px; /* kiri-kanan gap di dalam grid */
+    box-sizing: border-box;
     cursor: pointer;
     transition: .3s ease;
 }
@@ -740,7 +742,7 @@ img {
 
 .category-card:nth-child(3) .category-img-new {
     object-position: 30% center;   /* geser focal point ke kiri (0% paling kiri, 50% tengah) */
-    transform: translateX(-6%);    /* geser seluruh gambar sedikit ke kiri jika diperlukan */
+    transform: none;    /* geser seluruh gambar sedikit ke kiri jika diperlukan */
     transition: transform .28s ease, object-position .28s ease;
 }
 
