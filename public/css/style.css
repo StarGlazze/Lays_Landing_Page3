@@ -35,6 +35,13 @@ img {
     display: block;
 }
 
+.layout-wrapper {
+    width: 100%;
+    max-width: 1920px;   /* ukuran layout normalmu */
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
 /* ========================================
    BUTTONS
 ======================================== */
@@ -625,8 +632,8 @@ img {
     position: absolute;
     bottom: 0.3rem;
     margin-left: 0.3rem;
-    width: 14px;
-    height: 14px;
+    width: 10px;
+    height: 10px;
     background: var(--yellow);
     border-radius: 50%;
 }
@@ -653,63 +660,124 @@ img {
     color: rgba(255,255,255,0.95);
 }
 
-/* ========================================
-   CATEGORIES SECTION
-======================================== */
+/* ===========================================================
+   NEW CATEGORY DESIGN (SAFE OVERRIDE, NO DAMAGE TO LAYOUT)
+=========================================================== */
+
+/* FIX SPACING FOR CATEGORY SECTION */
 .categories {
-    padding: 5rem var(--padding);
-    background: var(--white);
+    padding: 3rem var(--padding) 8rem; /* top / left-right (sama dengan section lain) / bottom */
 }
 
+/* GRID */
 .categories-grid {
-    max-width: var(--max-width);
-    margin: 3rem auto 0;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
+/* CARD WRAPPER */
 .category-card {
     position: relative;
-    height: 400px;
-    border-radius: 20px;
-    overflow: hidden;
+    overflow: visible;
+    border-radius: 40px 100px 0px 40px;
+    -webkit-border-radius: 40px 100px 0px 40px;
+    -moz-border-radius: 40px 100px 0px 40px;
+    padding-bottom: 40px;
     cursor: pointer;
-    transition: transform 0.3s;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: .3s ease;
 }
 
-.category-card:hover {
-    transform: translateY(-5px);
-}
-
-.category-image {
+/* IMAGE STYLE */
+.category-img-new {
     width: 100%;
-    height: 100%;
+    height: 330px;
     object-fit: cover;
+    border-radius: 40px 100px 0px 40px;
+    display: block;
 }
 
-.category-card:nth-child(3) .category-image {
-    object-position: 30% center;
-}
-
-.category-overlay {
+/* BOTTOM SHAPE */
+.category-bottom-card {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));
-}
-
-.category-content {
-    position: absolute;
-    bottom: 2rem;
-    left: 2rem;
-    z-index: 2;
-}
-
-.category-content h3 {
+    left: 50%;
+    bottom: -40px; /* sesuaikan ini untuk naik/turun */
+    transform: translateX(-50%);
+    background: var(--brown);
+    padding: 1.6rem 2rem;
+    width: 75%;
+    text-align: center;
+    border-radius: 0px 70px 0px 70px;
+    -webkit-border-radius: 0px 70px 0px 70px;
+    -moz-border-radius: 0px 70px 0px 70px;
     color: var(--white);
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    z-index: 5;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* COLOR VARIANTS */
+.category-bottom-card.red {
+    background: var(--primary-red);
+}
+
+.category-bottom-card.orange {
+    background: #c76439;
+}
+
+/* TEXT */
+.category-bottom-card h3 {
+    margin-bottom: 0.7rem;
+    font-size: 1.3rem;
+}
+
+/* BUTTON */
+.category-btn {
+    background: var(--yellow);
+    border-radius: 50px;
+    padding: 10px 22px;
+    font-size: 0.9rem;
+}
+
+.category-card:nth-child(3) .category-img-new {
+    object-position: 30% center;   /* geser focal point ke kiri (0% paling kiri, 50% tengah) */
+    transform: translateX(-6%);    /* geser seluruh gambar sedikit ke kiri jika diperlukan */
+    transition: transform .28s ease, object-position .28s ease;
+}
+
+@media (max-width: 768px) {
+    .category-card:nth-child(3) .category-img-new {
+        object-position: 50% center;
+        transform: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .categories-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .category-card {
+        padding-bottom: 60px;
+    }
+
+    .categories {
+        padding-bottom: 10rem;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-img-new {
+        height: 300px;
+    }
+
+    .category-bottom-card {
+        width: 85%;
+        bottom: -25px;
+    }
 }
 
 /* ========================================
@@ -1051,36 +1119,49 @@ img {
     }
 }
 
-/* Mobile Small */
-@media (max-width: 480px) {
-    /* SCROLL INDICATOR - MOBILE */
-    .scroll-indicator {
-        width: 45px;
-        height: 45px;
-        top: -18px;
-    }
-    
-    .scroll-indicator svg {
-        width: 16px;
-        height: 16px;
-    }
+@media (max-width: 640px) {
 
-    /* CREATE CARD MOBILE FIX */
     .create-card {
-        border-radius: 90px 45px 0 45px;
-        padding: 7rem 1.8rem 2.2rem 1.8rem;
-        min-height: 320px;
-        margin-top: 6rem;
-        position: relative;
+        padding-top: 95px;   /* dari 150 → 110 */
+        padding-bottom: 28px;
+        min-height: 330px;
     }
 
     .create-card .create-img {
-        position: absolute;
-        top: -75px;
+        top: -70px;          /* dari -90 → -75 */
+        width: 190px;        /* ukuran aman */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .products-grid > .product-card:nth-child(3) {
+        margin-bottom: 2rem;
+    }
+
+    .products-grid > .product-card:nth-child(3) .image-wrapper {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+
+    .create-card {
+        padding-top: 100px !important;  /* dari 160 → 120 */
+        padding-bottom: 32px;
+        min-height: 320px;
+        border-radius: 90px 45px 0 45px;
+    }
+
+    .create-card .create-img {
+        top: -80px !important;        /* dari -95 → -85 */
+        width: 205px;                 /* sedikit diperbesar */
         left: 50% !important;
         transform: translateX(-50%) !important;
-        width: 235px;
-        z-index: 5;
         filter: drop-shadow(0px 18px 26px rgba(0,0,0,0.28));
+    }
+
+    .create-card h3 {
+        margin-top: 6px;
     }
 }
