@@ -40,7 +40,7 @@ img {
     width: 100%;
     max-width: 1920px;   /* ukuran layout normalmu */
     margin: 0 auto;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 /* ========================================
@@ -81,10 +81,12 @@ img {
     top: 0;
     z-index: 1000;
     transition: all 0.3s ease;
+    width: 100%; /* Pastikan navbar full width */
 }
 
 .navbar.scrolled {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    background: var(--dark-red); /* Pastikan background tetap solid */
 }
 
 .nav-container {
@@ -106,7 +108,7 @@ img {
 
 .logo span {
     font-family: 'Paytone One', sans-serif;
-    font-weight: 300;
+    font-weight: 200;
     font-size: 1.5rem;
     letter-spacing: 0.5px;
 }
@@ -133,6 +135,7 @@ img {
     transition: opacity 0.3s;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    white-space: nowrap; /* Cegah text wrap */
 }
 
 .nav-menu a:hover {
@@ -153,6 +156,7 @@ img {
     font-size: 1.2rem;
     cursor: pointer;
     transition: transform 0.3s;
+    padding: 0.5rem; /* Tambah area klik */
 }
 
 .nav-icons button:hover {
@@ -164,6 +168,7 @@ img {
     flex-direction: column;
     gap: 4px;
     cursor: pointer;
+    padding: 0.5rem;
 }
 
 .hamburger span {
@@ -173,6 +178,82 @@ img {
     transition: all 0.3s;
 }
 
+/* ========================================
+   RESPONSIVE STYLES
+======================================== */
+@media (max-width: 968px) {
+    .nav-menu {
+        gap: 1.5rem;
+        margin-right: 1rem;
+    }
+    
+    .nav-menu a {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem var(--padding);
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px; /* Sesuaikan dengan tinggi navbar */
+        flex-direction: column;
+        background: var(--dark-red);
+        width: 100%;
+        text-align: center;
+        transition: left 0.3s ease;
+        padding: 2rem 0;
+        margin: 0;
+        gap: 1.5rem;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .logo span {
+        font-size: 1.3rem;
+    }
+    
+    .nav-icons {
+        gap: 1rem;
+    }
+    
+    .nav-icons button {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+    
+    .logo span {
+        font-size: 1.1rem;
+    }
+    
+    .logo-image {
+        height: 32px;
+    }
+    
+    .nav-icons {
+        gap: 0.8rem;
+    }
+    
+    .nav-icons button {
+        font-size: 1rem;
+    }
+}
 /* =============================
    HERO SECTION
 ============================= */
@@ -197,7 +278,7 @@ img {
 
 .hero-content h1 {
     font-size: 3.8rem;
-    font-weight: 800;
+    font-weight: 300;
     line-height: 1.1;
     color: #fff;
     margin-bottom: 1rem;
