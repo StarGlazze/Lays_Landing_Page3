@@ -233,7 +233,7 @@
                     </div>
 
                     <div class="newsletter-text">
-                        <h2>Sign up for exclusive offers and discounts.</h2>
+                        <h2>Sign up for exclusive offers and discounts</h2>
                     </div>
 
                     <form class="newsletter-form">
@@ -299,24 +299,7 @@
                 <p>© Copyright 2025, All Rights Reserved by RihanGG</p>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab        <section class="newsletter" id="explore">
-                            <div class="newsletter-container">
-                                <div class="newsletter-icon">
-                                    <img src="{{ asset('images/chip_numpuk.png') }}" alt="Chip Numpuk"
-                                        class="newsletter-image">
-                                </div>
-                                <div class="newsletter-content reveal">
-                                    <h2>Sign up to receive exclusive offers and discounts.</h2>
-                                    <form class="newsletter-form">
-                                        <input type="email" placeholder="Your e-mail address" required>
-                                        <button type="submit">
-                                            <i class="fas fa-paper-plane"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                            </section> fa-linkedin-in">
-                        </i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>

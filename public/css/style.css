@@ -15,6 +15,7 @@
     --white: #ffffff;
     --text-dark: #2d2d2d;
     --text-light: #666666;
+    --primary-black: #000000; 
     --padding: 12%;
     --max-width: 1400px;
 }
@@ -218,11 +219,38 @@ img {
 }
 
 .main-chips-image {
-    width: 140%;
-    transform: rotate(15deg) scale(1.3);
-    filter: drop-shadow(0 35px 55px rgba(0,0,0,0.45));
+    width: 140%;             /* gunakan 100% agar mengikuti container */
+    max-width: 720px;        /* ubah angka ini untuk kontrol ukuran desktop */
+    height: auto;
+    transform: rotate(15deg) scale(1.15); /* ubah scale untuk mengecilkan/membesarkan */
+    filter: drop-shadow(0 30px 50px rgba(0,0,0,0.45));
     position: relative;
-    right: -40px;
+    right: -12%;             /* ubah offset kanan (bisa pakai px juga) */
+    display: block;
+}
+
+/* RESPONSIVE: sesuaikan ukuran & transform untuk tablet / mobile */
+@media (max-width: 1024px) {
+    .main-chips-image {
+        max-width: 360px;
+        transform: rotate(12deg) scale(1.05);
+        right: -8%;
+    }
+}
+@media (max-width: 768px) {
+    .main-chips-image {
+        max-width: 280px;
+        transform: rotate(8deg) scale(1);
+        right: 0;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 480px) {
+    .main-chips-image {
+        max-width: 220px;
+        transform: rotate(6deg) scale(0.95);
+        right: 0;
+    }
 }
 
 /* =============================
@@ -510,10 +538,9 @@ img {
 .create-card .create-img {
     position: absolute;
     top: -100px;
-    transform: translateX(-50%);
     width: 200px;
     z-index: 3;
-    filter: drop-shadow(0px 15px 30px rgba(0,0,0,0.35));
+    filter: drop-shadow(0px 15px 30px rgba(0,0,0,0.35)) !important;
 }
 
 .create-card h3 {
@@ -771,27 +798,23 @@ img {
 /* ============================
    NEWSLETTER SECTION - 3 COLUMNS
 ============================ */
-
 .newsletter {
     position: relative;
     width: 100%;
     padding: 0;
 }
 
-/* Div putih atas */
 .newsletter-top {
     background: var(--white);
     height: 60px;
 }
 
-/* Div coklat bawah */
 .newsletter-bottom {
     background: var(--brown);
     padding: 3rem var(--padding);
     position: relative;
 }
 
-/* CONTAINER - 3 KOLOM: Chip | Text | Form */
 .newsletter-container {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -802,7 +825,6 @@ img {
     position: relative;
 }
 
-/* CHIP - Kolom 1 */
 .newsletter-chip {
     display: flex;
     align-items: center;
@@ -815,7 +837,6 @@ img {
     margin-top: -120px;  /* Nongol ke atas */
 }
 
-/* TEXT - Kolom 2 */
 .newsletter-text {
     display: flex;
     align-items: center;
@@ -830,162 +851,148 @@ img {
     margin: 0;
     max-width: 320px;
     text-align: center;
+    position: relative; /* ditambahkan supaya ::after tetap relatif ke judul tanpa merubah letak */
+    --newsletter-dot-bottom: 0.3rem; /* ubah default di sini */
 }
 
-/* FORM - Kolom 3 */
-.newsletter-form {
-    background: var(--white);
-    display: flex;
-    border-radius: 50px;
-    overflow: hidden;
-    padding: 5px;
-    width: 320px;
-    flex-shrink: 0;
-}
-
-.newsletter-form input {
-    flex: 1;
-    padding: 0.85rem 1.2rem;
-    border: none;
-    font-size: 0.9rem;
-    outline: none;
-}
-
-.newsletter-form input::placeholder {
-    color: #999;
-}
-
-.newsletter-form button {
+.newsletter-text h2::after {
+    content: "";
+    position: absolute;
+    bottom: var(--newsletter-dot-bottom);
+    margin-left: 0.3rem;
+    width: 8px;
+    height: 8px;
     background: var(--yellow);
-    border: none;
-    padding: 0.85rem 1.2rem;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    transition: transform 0.3s;
-    color: var(--text-dark);
-}
-
-.newsletter-form button:hover {
-    transform: scale(1.05);
-}
-
-/* ============================
-   RESPONSIVE
-============================ */
-
-@media (max-width: 1200px) {
-    .newsletter-container {
-        grid-template-columns: 200px 1fr auto;
-        gap: 2rem;
-        max-width: 95%;  /* ⬅️ TAMBAH INI */
-    }
-
-    .newsletter-chip img {
-        width: 200px;
-        margin-top: -100px;
-    }
-
-    .newsletter-text h2 {
-        font-size: 1.4rem;
-        max-width: 250px;  /* ⬅️ TAMBAH INI */
-    }
-
-    .newsletter-form {
-        width: 280px;
-    }
+    border-radius: 50%;
+    transition: all 120ms ease;
 }
 
 @media (max-width: 1024px) {
-    .newsletter-container {
-        grid-template-columns: 180px 1fr auto;
-        gap: 1.5rem;
-        padding: 0 2rem;  /* ⬅️ TAMBAH padding kiri-kanan */
-    }
-
-    .newsletter-chip img {
-        width: 180px;
-        margin-top: -90px;
-    }
-
-    .newsletter-text h2 {
-        font-size: 1.3rem;
-        max-width: 220px;
-    }
-
-    .newsletter-form {
-        width: 260px;
-    }
+    .newsletter-text h2 { --newsletter-dot-bottom: 0.3rem; }
+}
+@media (max-width: 768px) {
+    .newsletter-text h2 { --newsletter-dot-bottom: 0.2.5rem; }
+}
+@media (max-width: 480px) {
+    .newsletter-text h2 { --newsletter-dot-bottom: 0.2rem; }
 }
 
+.newsletter-form {
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    overflow: hidden;
+    padding: 6px;
+    width: 100%;
+    max-width: 320px;   /* desktop default */
+    height: 44px;
+    box-sizing: border-box;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.newsletter-form input{
+    flex: 1;
+    padding: 0.45rem 0.75rem;
+    border: none;
+    font-size: 0.95rem;
+    outline: none;
+    background: transparent;
+    color: inherit;
+}
+
+.newsletter-form button{
+    background: var(--yellow);
+    border: none;
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: transform .2s;
+    color: var(--text-dark);        /* pastikan teks terlihat */
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.newsletter-form button i,
+.newsletter-form button svg {
+    color: var(--text-dark);
+    fill: var(--text-dark);
+    font-size: 1rem;
+}
+
+@media (max-width: 1024px){
+    .newsletter-form{ max-width: 300px; height:42px; padding:5px; }
+    .newsletter-form input{ font-size:0.92rem; padding:0.4rem 0.7rem; }
+    .newsletter-form button{ padding:0.4rem 0.7rem; font-size:0.9rem; }
+}
 @media (max-width: 768px) {
-    .newsletter-top {
-        height: 120px;
-    }
+  .newsletter-container {
+    grid-template-columns: 1fr; /* stack secara vertikal pada layar kecil */
+    gap: 1rem;
+    padding: 0 var(--padding);
+  }
+  .newsletter-chip { justify-self: center; }
+  .newsletter-chip img { width: 140px; margin-top: -60px; max-width: 60%; height: auto; }
+  .newsletter-text { justify-self: center; padding: 0 1rem; }
+  .newsletter-text h2 { text-align: center; max-width: 100%; }
 
-    .newsletter-bottom {
-        padding: 3rem 1rem;  /* ⬅️ KURANGIN padding */
-    }
+  .newsletter-form {
+    justify-self: center;
+    width: 100%;
+    max-width: 420px;
+    padding: 8px;
+    box-sizing: border-box;
+    gap: 8px;
+    flex-direction: row; /* tetap horizontal pada tablet kecil */
+  }
+  .newsletter-form input { flex: 1; min-width: 0; }
+  .newsletter-form button { display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; }
 
-    .newsletter-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 2rem;
-        padding: 0;  /* ⬅️ RESET padding */
-    }
+  .newsletter-form button i,
+  .newsletter-form button svg { color: var(--text-dark); fill: var(--text-dark); }
 
-    .newsletter-chip {
-        justify-content: center;  /* ⬅️ CENTER */
-    }
-
-    .newsletter-chip img {
-        width: 180px;
-        margin-top: -80px;
-        margin-left: 0;  /* ⬅️ RESET margin */
-        margin-right: 0;  /* ⬅️ RESET margin */
-    }
-
-    .newsletter-text {
-        justify-content: center;
-    }
-
-    .newsletter-text h2 {
-        font-size: 1.4rem;
-        max-width: 100%;  /* ⬅️ FULL WIDTH */
-        margin: 0 auto;  /* ⬅️ CENTER */
-    }
-
-    .newsletter-form {
-        width: 100%;
-        max-width: 400px;
-        margin: 0 auto;
-    }
+  .newsletter { padding-bottom: 2rem; }
 }
 
 @media (max-width: 480px) {
-    .newsletter-text h2 {
-        font-size: 1.2rem;
-    }
+  .newsletter-form { flex-direction: column; padding: 6px 0; background: transparent; }
+  .newsletter-form input { border-radius: 50px; padding: .7rem 1rem; }
+  .newsletter-form button { width: 100%; border-radius: 50px; padding: .7rem 1rem; }
+  .newsletter-chip img { width: 110px; margin-top: -40px; }
+  .newsletter { padding-bottom: 2.5rem; }
+}
 
-    .newsletter-chip img {
-        width: 140px;
-    }
+.newsletter,
+.newsletter-bottom,
+.newsletter-container { 
+    overflow: visible;
+    background-color: var(--brown); 
+}
 
-    .newsletter-form {
-        flex-direction: column;
-        gap: 0.5rem;
-        padding: 0;
-        background: transparent;
-    }
+.newsletter_chip img {
+    position: relative;
+    z-index: 6; /* above brown background */
+    display: block;
+    pointer-events: none; /* optional: avoid accidental clicks */
+}
 
-    .newsletter-form input {
-        border-radius: 50px;
-        background: var(--white);
-    }
+.newsletter-form,
+.newsletter-form button,
+.newsletter-form button i,
+.newsletter-form button svg {
+    position: relative;
+    z-index: 8;
+}
 
-    .newsletter-form button {
-        width: 100%;
-    }
+.newsletter-form input { min-width: 0; }
+
+@media (max-width: 480px) {
+    .newsletter_chip img { margin-top: -40px; z-index: 8; }
+    .newsletter-form { gap: 8px; }
+    .newsletter-form button { align-self: stretch; display: inline-flex; justify-content: center; }
 }
 
 /* ========================================
