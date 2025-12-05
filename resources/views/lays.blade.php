@@ -7,7 +7,9 @@
     <title>Lays Potato - The Best Snack For You</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Inter:wght@300;400;500;600;700;800&display=swap"rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Inter:wght@300;400;500;600;700;800&display=swap"rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
@@ -246,10 +248,8 @@
             <div class="footer-container">
                 <div class="footer-brand">
                     <div class="logo">
-                        <div class="logo-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <span>Lay's</span>
+                        <img src="{{ asset('images/logo_lays.png') }}" alt="Lays Logo" class="logo-image">
+                        <span>Potato</span>
                     </div>
                     <p>Lorem ipsum dolor sit amet consectetur. Augue placerat congue nibh fermentum eleifend in mauris
                         consequat.</p>
@@ -257,51 +257,78 @@
                 <div class="footer-links">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> About</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Careers</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Press</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Works</a></li>
+                        <li><a href="#">Careers</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Help</h4>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contact Support</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> FAQs</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Terms & Conditions</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                        <li><a href="#">Customer Support</a></li>
+                        <li><a href="#">Delivery Details</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Free eBooks</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> How-To Guides</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Rewards Points</a></li>
+                        <li><a href="#">Free eBooks</a></li>
+                        <li><a href="#">Development Tutorial</a></li>
+                        <li><a href="#">How to-Blog</a></li>
+                        <li><a href="#">Youtube Playlist</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Install App</h4>
                     <div class="app-buttons">
-                        <div class="app-btn">
-                            <i class="fab fa-apple"></i> App Store
-                        </div>
-                        <div class="app-btn">
-                            <i class="fab fa-google-play"></i> Google Play
-                        </div>
+                        <a href="#" class="app-btn">
+                            <img src="{{ asset('images/app-store-badge.svg') }}" alt="Download on the App Store">
+                        </a>
+                        <a href="#" class="app-btn">
+                            <img src="{{ asset('images/google-play-badge.png') }}" alt="Get it on Google Play">
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>© Copyright 2025, All Rights Reserved by RihanGG</p>
                 <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#">
+                        <!-- Twitter -->
+                        <svg viewBox="0 0 24 24" class="icon">
+                            <path
+                                d="M23.643 4.937c-.835.37-1.732.62-2.675.733a4.67 4.67 0 0 0 2.048-2.57 9.42 9.42 0 0 1-2.97 1.13 4.66 4.66 0 0 0-7.93 4.25A13.21 13.21 0 0 1 3.15 3.16a4.66 4.66 0 0 0 1.44 6.21 4.6 4.6 0 0 1-2.1-.58v.06a4.66 4.66 0 0 0 3.74 4.57 4.7 4.7 0 0 1-2.09.08 4.67 4.67 0 0 0 4.36 3.24A9.34 9.34 0 0 1 1.11 18.1 13.17 13.17 0 0 0 8.28 20c8.45 0 13.07-7.23 13.07-13.5v-.62a9.5 9.5 0 0 0 2.29-2.94z" />
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <!-- Facebook -->
+                        <svg viewBox="0 0 24 24" class="icon">
+                            <path
+                                d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1 .9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.7-1.3 1.4V12h2.3l-.4 3h-2v7A10 10 0 0 0 22 12" />
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <!-- Instagram -->
+                        <svg viewBox="0 0 24 24" class="icon">
+                            <path
+                                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zm-5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-.1a1.1 1.1 0 1 0 0-2.2 1.1 1.1 0 0 0 0 2.2z" />
+                        </svg>
+                    </a>
+                    <a href="#">
+                        <!-- GitHub -->
+                        <svg viewBox="0 0 24 24" class="icon">
+                            <path
+                                d="M12 .5A11.5 11.5 0 0 0 .5 12.2a11.7 11.7 0 0 0 7.8 11c.6.1.8-.3.8-.6v-2c-3.2.7-3.8-1.6-3.8-1.6a3.2 3.2 0 0 0-1.3-1.8c-1-.7.1-.7.1-.7a2.5 2.5 0 0 1 1.9 1.3 2.5 2.5 0 0 0 3.4 1 2.6 2.6 0 0 1 .8-1.6c-2.6-.3-5.4-1.4-5.4-6.1a4.8 4.8 0 0 1 1.2-3.3 4.3 4.3 0 0 1 .1-3.2s1-.3 3.3 1.3a11.4 11.4 0 0 1 6 0C17.5 5 18.5 5.3 18.5 5.3a4.3 4.3 0 0 1 .1 3.2 4.8 4.8 0 0 1 1.2 3.3c0 4.7-2.8 5.7-5.5 6a2.9 2.9 0 0 1 .9 2.3v3.3c0 .3.2.7.8.6A11.7 11.7 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </footer>
     </div>
+
     <script src="{{ asset('js/script.js') }}"></script>
 </body>
 
